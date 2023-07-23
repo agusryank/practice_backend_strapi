@@ -13,14 +13,14 @@ module.exports = createCoreController(
       let requestData = ctx.request.body;
       console.log("request: ", requestData);
 
-      let order = await strapi
-        .service("api::order.order")
-        .findOne(requestData.order_id);
-      let inputData = { data: { history: requestData } };
+      // let order = await strapi
+      //   .service("api::order.order")
+      //   .findOne(requestData.order_id);
+      // let inputData = { data: { history: requestData } };
 
-      const result = await strapi
-        .service("api::payment-callback.payment-callback")
-        .create(inputData);
+      // const result = await strapi
+      //   .service("api::payment-callback.payment-callback")
+      //   .create(inputData);
 
       let params = {};
 

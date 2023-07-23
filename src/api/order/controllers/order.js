@@ -9,6 +9,7 @@ const { createCoreController } = require("@strapi/strapi").factories;
 module.exports = createCoreController("api::order.order", ({ strapi }) => ({
   async create(ctx) {
     console.log(ctx.request.body);
+    // @ts-ignore
     const result = await super.create(ctx);
 
     const midtransClient = require("midtrans-client");
@@ -18,7 +19,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       serverKey: "SB-Mid-server-SXMe4HUG597_Hgc8YtJBE3RD",
       clientKey: "SB-Mid-client-v6jk6frNsXsXbLqr",
     });
-
+    
     let parameter = {
       transaction_details: {
         order_id: result.data.id,
